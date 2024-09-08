@@ -5,7 +5,6 @@ const router = express.Router();
 require('dotenv').config();
 
 
-//test
 const authenticateToken = (req, res, next) => {
 
   let authHeader = req.headers['authorization'];
