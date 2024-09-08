@@ -1,0 +1,34 @@
+<!-- comments.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments on <%= post.title %></title>
+</head>
+<body>
+    <h1><%= post.title %></h1>
+    <p><%= post.content %></p>
+
+    <h2>Comments</h2>
+    <ul>
+        <% comments.forEach(function(comment) { %>
+            <li>
+                <%= comment.content %> by User ID: <%= comment.user_id %>
+                <form action="/comments/like/<%= comment.comment_id %>" method="POST" style="display: inline;">
+                    <button type="submit">Like (<%= comment.likes %>)</button>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+
+    <form action="/comments/create" method="POST">
+        <input type="hidden" name="post_id" value="<%= post.post_id %>">
+        <textarea name="content" placeholder="Write a comment..." required></textarea>
+        <button type="submit">Add Comment</button>
+    </form>
+    <br>
+    <br>
+    <div> <input type="button" onclick="location.href='/Posts'" value="Posts" /></div>
+</body>
+</html>

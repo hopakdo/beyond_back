@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task Manager</title>
+</head>
+<body>
+<h1>Welcome, <%= user.email %></h1>
+
+<form action="/timetables/create" method="POST">
+    <fieldset>
+        <legend>Create a New Event</legend>
+        <input type="text" name="title" placeholder="Event Title" maxlength="10" required>
+        <input type="text" name="day" placeholder="Day" maxlength="10" required>
+        <input type="text" name="startTime" placeholder="Start Time" maxlength="10" required>
+        <input type="text" name="endTime" placeholder="End Time" maxlength="10" required>
+        <input type="text" name="location" placeholder="Location" maxlength="10" required>
+        <input type="datetime-local" name="init_date" placeholder="Initialization Date" >
+        <button type="submit">Create Event</button>
+    </fieldset>
+</form>
+<br>
+<br>
+<div> <input type="button" onclick="location.href='/Posts'" value="Posts" /></div>
+</body>
+</html>
