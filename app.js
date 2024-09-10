@@ -9,6 +9,7 @@ const authRoutes = require('./routes/auth');
 const postRoutes = require('./routes/posts');
 const timetablesRoutes = require('./routes/timetables');
 const commentsRoutes = require('./routes/comments');
+const uploader = require('./routes/uploadFiles');
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use('/posts', postRoutes);
 app.use('/login', verifier);
 app.use('/timetables', timetablesRoutes);
 app.use('/comments', commentsRoutes);
+app.use('/uploadfiles', uploader);
 
 
 
